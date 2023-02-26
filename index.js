@@ -116,7 +116,7 @@ client.on('messageCreate', async (message) => {
         }
     } else {
         let staff = (await staffRoles(message.guild)).map(role => role.id);
-        let shouldDelete = member._roles.some(r => staff.includes(r)); // !
+        let shouldDelete = !member._roles.some(r => staff.includes(r)); // !
         let mentions = false;
         if (message.mentions) {
             let men = message.mentions.everyone;
